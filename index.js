@@ -4,7 +4,7 @@ import Connection from "./database/db.js";
 
 const app = express();
 
-const PORT = 800;
+const PORT = 8000;
 
 Connection();
 

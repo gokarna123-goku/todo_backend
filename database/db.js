@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
 
 const Connection = () => {
-  const MONGODB_URI =
-    "mongodb+srv://logi2065:Logi2065123@cluster0.wdixa4s.mongodb.net/?retryWrites=true&w=majority";
+  const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.wdixa4s.mongodb.net/?retryWrites=true&w=majority`;
 
   mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
@@ -17,9 +22,9 @@ const Connection = () => {
     console.log("Database disconnected successfully");
   });
 
-  mongoose.connection.on("error", () => {
-    console.log("Error occured while connecting database", error.message);
-  });
+  //   mongoose.connection.on("error", () => {
+  //     console.log("Error occured while connecting database", error.message);
+  //   });
 };
 
 export default Connection;
