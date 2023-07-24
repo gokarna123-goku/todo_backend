@@ -1,9 +1,9 @@
 import express from 'express';
 
-const router = express.Router();
+const route = express.Router();
 
-router.post('todos' = (req, res) => {
-
+route.post('/todos', (req, res) => {
+    console.log(req.body);
 });
 
-export default router;
+export default route;
